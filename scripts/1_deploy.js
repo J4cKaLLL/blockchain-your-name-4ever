@@ -2,14 +2,14 @@ const hre = require("hardhat");
 
 async function main() {  
   // Fetch Contract to Deploy
-  const SaveYourName = await hre.ethers.getContractFactory("SaveYourName");
+  const YourName = await hre.ethers.getContractFactory("YourName");
   // Deploy Contract
-  const saveYourName = await SaveYourName.deploy();
+  const yourName = await YourName.deploy();
   // wait until contract deployed
-  await saveYourName.deployed();
+  await yourName.deployed();
   // Log in console
-  console.log("saveYourName deployed to:", saveYourName.address);
-  console.log(`saveYourName deployed to :${saveYourName.address}`);
+  console.log("YourName deployed to:", yourName.address);
+  console.log(`YourName deployed to: ${yourName.address}`);
   }
 
 // We recommend this pattern to be able to use async/await everywhere

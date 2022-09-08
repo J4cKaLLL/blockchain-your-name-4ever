@@ -57,15 +57,15 @@ CREATE DAPP FROM SCRATCH
 	// npx hardhat run --network localhost ./scripts/1_deploy.js 
 	// npx hardhat console --network localhost 
 
-	// const SaveYourName = await ethers.getContractFactory(“SaveYourName”)	
-	// const SaveYourNames = await SaveYourName.attach("0x0165878A594ca255338adfa4d48449f69242Eb8F")
+	// const YourName = await ethers.getContractFactory(“YourName”)	
+	// const YourNames = await SaveYourName.attach("0x0165878A594ca255338adfa4d48449f69242Eb8F")
 	or
-	// const SaveYourNames = await ethers.getContractAt(“SaveYourName”, "0x0165878A594ca255338adfa4d48449f69242Eb8F")
+	// const YourNames = await ethers.getContractAt(“YourName”, "0x0165878A594ca255338adfa4d48449f69242Eb8F")
 20. Contract can he used like this:	
-	// await SaveYourNames.yourName()
-	// await SaveYourNames.contractAddress()
-	// await SaveYourNames.payer()
-	// await SaveYourNames.setName("Eder")
+	// await YourNames.yourName()
+	// await YourNames.contractAddress()
+	// await YourNames.payer()
+	// await YourNames.setName("Eder")
 21. Get hardhat localhost server addresses
 	// const accounts = await ethers.getSigners()
 	// accounts[0].address
@@ -74,3 +74,6 @@ CREATE DAPP FROM SCRATCH
 	// ethers.utils.formatEther(balance.toString())
 22. Exit console
 	// .exit
+23. Create test.js
+24. To run a test from console
+	// npx hardhat test
