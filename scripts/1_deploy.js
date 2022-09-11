@@ -4,7 +4,7 @@ async function main() {
   // Fetch Contract to Deploy
   const YourName = await hre.ethers.getContractFactory("YourName");
   // Deploy Contract
-  const yourName = await YourName.deploy();
+  const yourName = await YourName.deploy('Satoshi Nakamoto');
   // wait until contract deployed
   await yourName.deployed();
   // Log in console
