@@ -2,6 +2,7 @@ const hre = require("hardhat");
 
 async function main() {  
   // Fetch Contract to Deploy
+  console.log(`Preparing deployment...\n`)
   const YourName = await hre.ethers.getContractFactory("YourName");
   // Deploy Contract
   const yourName = await YourName.deploy('Satoshi Nakamoto');

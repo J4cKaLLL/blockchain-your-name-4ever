@@ -9,7 +9,7 @@ describe('YourName Contract Testing',() =>{
 		const YourName = await ethers.getContractFactory('YourName')
 		yourName = await YourName.deploy('Satoshi Nakamoto')
 		await yourName.deployed();		
-
+		
 		const accounts = await ethers.getSigners()		
 		accountDeployer = accounts[0]
 		account1 = accounts[1]	
@@ -17,6 +17,9 @@ describe('YourName Contract Testing',() =>{
 	})
 
 	describe('Deployment',() =>{
+		it('Compares the address of the deployed contract', async()=>{			
+			expect(await yourName.contractAddress()).to.equal(yourName.address)
+		})
 		it('Compares msg.sender and accountDeployer', async() =>{
 			expect(await yourName.connect(accountDeployer).owner()).to.equal(accountDeployer.address)
 		})

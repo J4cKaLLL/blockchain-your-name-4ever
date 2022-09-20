@@ -5,22 +5,24 @@ import "hardhat/console.sol";
 
 contract YourName {
 	
-	address public owner;	
+	address public owner;
+	address public contractAddress;	
+	string public symbol = "MetalUpYourAzz";	
 	mapping (address => string) public yourNames;
 	mapping (address => bool) public stateName;
-	event SetName(address indexed _user, string indexed _yourName);
-
-
+	event SetName(address indexed _user, string _yourName);
+	
 	constructor (string memory _yourName) {
 		owner = msg.sender;
 		yourNames[owner] = _yourName;
-		stateName[owner] = true;
+		stateName[owner] = true;		
+		contractAddress = address(this);		
 	}		
 
 	function setName(string memory _yourName) public returns(bool success){
 		yourNames[msg.sender]= _yourName;		
 		stateName[msg.sender] = true;
-		emit SetName(msg.sender,_yourName);
+		emit SetName(msg.sender, yourNames[msg.sender]);
 		return true;
 	}
 
