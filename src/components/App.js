@@ -18,10 +18,11 @@ function App () {
   const dispatch = useDispatch()
 
   const loadBlockchainData = async () => {
-    await loadAccount(dispatch)
+    
     const provider = loadProvider(dispatch)
     const chainId = await loadNetwork(provider, dispatch)    
  
+    await loadAccount(dispatch, provider)
     
     await loadInstance(provider, config[chainId].yourName.address, dispatch)
 

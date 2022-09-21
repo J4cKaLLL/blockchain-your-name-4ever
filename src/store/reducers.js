@@ -15,6 +15,11 @@ export const provider = (state = {}, action) => {
 				...state,
 				account: action.account
 		}
+		case 'ETHER_BALANCE_LOADED':
+			return {
+				...state,
+				balance: action.balance
+		}
 		default: 
 			return state
 	}
@@ -26,8 +31,8 @@ export const instance = (state = {loaded: false, contract: null}, action) => {
 			return {
 				...state,
 				loaded: true,
-				contract: action.YourName,
-				symbol: action.symbol,
+				contract: action.instance,
+				symbol: action.symbol
 			}		
 		default: 
 			return state
