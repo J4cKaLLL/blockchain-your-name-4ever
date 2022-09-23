@@ -11,6 +11,7 @@ import {
 } from '../store/interactions';
 
 
+import Navbar from './Navbar';
 
 
 function App () {
@@ -20,9 +21,18 @@ function App () {
   const loadBlockchainData = async () => {
     
     const provider = loadProvider(dispatch)
-    const chainId = await loadNetwork(provider, dispatch)    
- 
-    await loadAccount(dispatch, provider)
+    const chainId = await loadNetwork(provider, dispatch) 
+
+    // Reload page when network changes
+    window.ethereum.on('chainChanged', () => {
+      window.location.reload()
+    })  
+
+
+    // Fetch current account & balance from Metamask when changed
+    window.ethereum.on('accountsChanged', () => {
+      loadAccount(provider, dispatch)
+    })      
     
     await loadInstance(provider, config[chainId].yourName.address, dispatch)
 
@@ -35,7 +45,7 @@ function App () {
   return (
     <div>
           
-      {/* Navbar */}
+      <Navbar></Navbar>
 
       <main className='exchange grid'>
         <section className='exchange__section--left grid'>
